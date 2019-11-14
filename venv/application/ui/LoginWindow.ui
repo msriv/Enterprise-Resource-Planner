@@ -219,6 +219,13 @@
       </item>
       <item row="3" column="3" colspan="2">
        <widget class="QPushButton" name="loginBtn">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="text">
          <string>LOGIN</string>
         </property>
@@ -271,6 +278,13 @@
                <height>0</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Arial</family>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
             </widget>
            </item>
            <item row="1" column="0">
@@ -303,6 +317,13 @@
                <height>0</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Arial</family>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
             </widget>
            </item>
           </layout>
@@ -314,8 +335,11 @@
        <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
+          <family>Arial</family>
           <pointsize>10</pointsize>
+          <weight>50</weight>
           <italic>false</italic>
+          <bold>false</bold>
           <underline>false</underline>
          </font>
         </property>
@@ -328,8 +352,9 @@
        <widget class="QPushButton" name="registerBtn">
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <family>Arial</family>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
@@ -337,6 +362,39 @@
         </property>
         <property name="text">
          <string>Register</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3" colspan="2">
+       <widget class="QLabel" name="messageLabel">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" colspan="4">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>17</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Welcome to the
+Enterprise Resource Planner</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>

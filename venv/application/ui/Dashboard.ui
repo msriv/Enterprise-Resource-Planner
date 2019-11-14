@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1276</width>
+    <width>1546</width>
     <height>911</height>
    </rect>
   </property>
@@ -17,7 +17,33 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,5,1" columnstretch="1,5,1">
+   <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,5,1" columnstretch="1,7,10,1">
+    <item row="2" column="2">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="2">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="1" column="0">
      <spacer name="horizontalSpacer">
       <property name="orientation">
@@ -31,12 +57,12 @@
       </property>
      </spacer>
     </item>
-    <item row="1" column="1">
-     <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="2">
+     <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
       <item row="0" column="1">
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="dashboardTab">
          <attribute name="icon">
@@ -73,7 +99,7 @@
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap>../images/Figure_1.png</pixmap>
+                <pixmap>../../../../ERP/venv/application/images/Figure_1.png</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>true</bool>
@@ -215,7 +241,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>../images/chart6.png</pixmap>
+                  <pixmap>../../../../ERP/venv/application/images/chart6.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -234,7 +260,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>../images/chart4.png</pixmap>
+                  <pixmap>../../../../ERP/venv/application/images/chart4.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -253,7 +279,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>../images/chart5.png</pixmap>
+                  <pixmap>../../../../ERP/venv/application/images/chart5.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -272,7 +298,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>../images/chart7.png</pixmap>
+                  <pixmap>../../../../ERP/venv/application/images/chart7.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -291,7 +317,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>../images/chart2.png</pixmap>
+                  <pixmap>../../../../ERP/venv/application/images/chart2.png</pixmap>
                  </property>
                 </widget>
                </item>
@@ -343,8 +369,8 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>1214</width>
-                  <height>701</height>
+                  <width>854</width>
+                  <height>249</height>
                  </rect>
                 </property>
                 <attribute name="icon">
@@ -435,7 +461,7 @@
                     <string/>
                    </property>
                    <property name="pixmap">
-                    <pixmap>../images/Figure_1.png</pixmap>
+                    <pixmap>../../../../ERP/venv/application/images/Figure_1.png</pixmap>
                    </property>
                   </widget>
                  </item>
@@ -990,7 +1016,7 @@
                   <x>0</x>
                   <y>0</y>
                   <width>1214</width>
-                  <height>707</height>
+                  <height>678</height>
                  </rect>
                 </property>
                 <attribute name="label">
@@ -1296,9 +1322,9 @@
                 <property name="geometry">
                  <rect>
                   <x>0</x>
-                  <y>-194</y>
+                  <y>0</y>
                   <width>1194</width>
-                  <height>873</height>
+                  <height>849</height>
                  </rect>
                 </property>
                 <attribute name="label">
@@ -1334,7 +1360,7 @@
                        <property name="title">
                         <string>New Item</string>
                        </property>
-                       <layout class="QGridLayout" name="gridLayout_22" rowstretch="2,0,0,0" columnstretch="2,2,3,1">
+                       <layout class="QGridLayout" name="gridLayout_22" rowstretch="2,0,0" columnstretch="2,2,3,1">
                         <item row="1" column="0" colspan="2">
                          <layout class="QFormLayout" name="formLayout_8">
                           <item row="0" column="0">
@@ -1631,6 +1657,14 @@
                 </layout>
                </widget>
                <widget class="QWidget" name="page_5">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>1214</width>
+                  <height>678</height>
+                 </rect>
+                </property>
                 <attribute name="label">
                  <string>Page</string>
                 </attribute>
@@ -1655,33 +1689,7 @@
       </item>
      </layout>
     </item>
-    <item row="0" column="1">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="1">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="1" column="2">
+    <item row="1" column="3">
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -1693,6 +1701,9 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="1" column="1">
+     <widget class="QListWidget" name="listWidget"/>
     </item>
    </layout>
   </widget>

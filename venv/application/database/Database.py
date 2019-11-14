@@ -20,12 +20,26 @@ class Database:
         else:
             print('Schema Already Exists')
 
-    def getAll(self):
-        self.cursor.execute("SELECT * FROM User;")
-        print(self.cursor.fetchall())
+    def closeConn(self):
+        self.conn.close()
 
-    def insertOne(self, tablename, columns, data):
-        print("Inserted")
+    # Query Abstractions
+    def fetchOne(self, table, projection, key, value):
+        query = "SELECT {0} FROM {1} WHERE {2} = '{3}'".format(projection, table, key, value)
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
+    def fetchAll(self, table, projection):
+        query = "SELECT {0} FROM {1}".format(projection, table)
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
+    def insertOne(self, table, values):
+        query = 'INSERT INTO {0} VALUES ({1})'.format(table, values)
+        print(query)
+        self.cursor.execute(query)
+        self.conn.commit()
+        print("Insert Successful")
 
     def insertMany(self, tablename, columns, data):
         print("Inserted")
@@ -41,3 +55,21 @@ class Database:
 
     def updateMany(self, tablename, column, data):
         print("Deleted")
+
+    # Custom Queries
+    def validate(self, key, value):
+        query = "SELECT fname FROM User WHERE {0} = '{1}' AND {2} = '{3}'".format(key[0], value[0], key[1], value[1])
+        print(query)
+        self.cursor.execute(query)
+        if len(self.cursor.fetchall()) > 0:
+            return True
+        else:
+            return False
+
+    def business_exists(self):
+        query = "SELECT * FROM Business"
+        self.cursor.execute(query)
+        if len(self.cursor.fetchall()) > 0:
+            return True
+        else:
+            return False

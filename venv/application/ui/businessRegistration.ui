@@ -102,7 +102,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEdit_7">
+          <widget class="QLineEdit" name="companyName">
            <property name="font">
             <font>
              <family>Arial</family>
@@ -143,7 +143,7 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
+         <item row="4" column="0">
           <widget class="QLabel" name="label_12">
            <property name="font">
             <font>
@@ -159,7 +159,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_8">
+          <widget class="QLineEdit" name="companyOwner">
            <property name="font">
             <font>
              <family>Arial</family>
@@ -171,7 +171,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="lineEdit_9">
+          <widget class="QLineEdit" name="mobileNumber">
            <property name="font">
             <font>
              <family>Arial</family>
@@ -182,8 +182,8 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="lineEdit_10">
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="companyGST">
            <property name="font">
             <font>
              <family>Arial</family>
@@ -194,19 +194,7 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="lineEdit_11">
-           <property name="font">
-            <font>
-             <family>Arial</family>
-             <pointsize>10</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
+         <item row="6" column="0">
           <widget class="QLabel" name="label_14">
            <property name="font">
             <font>
@@ -221,8 +209,8 @@
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="lineEdit_12">
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="companyTIN">
            <property name="font">
             <font>
              <family>Arial</family>
@@ -233,7 +221,7 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
+         <item row="7" column="0">
           <widget class="QLabel" name="label_15">
            <property name="font">
             <font>
@@ -248,8 +236,8 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="1">
-          <widget class="QLineEdit" name="lineEdit_13">
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="companyPAN">
            <property name="font">
             <font>
              <family>Arial</family>
@@ -260,7 +248,7 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="5" column="0">
           <widget class="QLabel" name="label_13">
            <property name="font">
             <font>
@@ -272,6 +260,34 @@
            </property>
            <property name="text">
             <string>GST No</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QTextEdit" name="companyAddress"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Email</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
            </property>
           </widget>
          </item>

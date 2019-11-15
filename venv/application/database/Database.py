@@ -47,7 +47,7 @@ class Database:
         self.conn.commit()
         print("Insert Successful")
 
-    def insertMany(self, tablename, columns, data):
+    def insertMany(self, tablename, projection, data):
         print("Inserted")
 
     def deleteOne(self, tablename, key):

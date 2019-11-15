@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
 class BusinessRegisterWindow(QtWidgets.QMainWindow):
 
-    switchDashboard = QtCore.pyqtSignal()
+    switchDashboard = QtCore.pyqtSignal(str)
 
     def __init__(self, db, username):
         super(BusinessRegisterWindow, self).__init__()
@@ -51,7 +51,7 @@ class BusinessRegisterWindow(QtWidgets.QMainWindow):
         self.database.insertOne("Business", self.data)
         self.database.insertOne("Business_mobileNumber", self.data2)
 
-        self.switchDashboard.emit()
+        self.switchDashboard.emit(self.username)
 
     def handleNoBReg(self):
         if self.showdialog():

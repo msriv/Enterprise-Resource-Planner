@@ -101,7 +101,7 @@
        </widget>
       </item>
       <item row="1" column="0" colspan="3">
-       <widget class="QTabWidget" name="tabWidget">
+       <widget class="QTabWidget" name="mainTabWidget">
         <property name="currentIndex">
          <number>1</number>
         </property>
@@ -378,8 +378,8 @@
           <string>Production Planning</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <widget class="QGroupBox" name="groupBox_2">
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="ppGroupBox">
             <property name="font">
              <font>
               <family>Arial</family>
@@ -393,7 +393,7 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_9">
              <item row="0" column="0">
-              <widget class="QToolBox" name="toolBox">
+              <widget class="QToolBox" name="ppToolBox">
                <property name="font">
                 <font>
                  <family>Arial</family>
@@ -405,7 +405,7 @@
                <property name="currentIndex">
                 <number>1</number>
                </property>
-               <widget class="QWidget" name="page">
+               <widget class="QWidget" name="mrpPage">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -545,7 +545,7 @@
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_2">
+               <widget class="QWidget" name="omPage">
                 <property name="geometry">
                  <rect>
                   <x>0</x>
@@ -563,7 +563,7 @@
                 </attribute>
                 <layout class="QGridLayout" name="gridLayout_8">
                  <item row="0" column="0">
-                  <widget class="QTabWidget" name="tabWidget_2">
+                  <widget class="QTabWidget" name="om_optionsTab">
                    <property name="tabPosition">
                     <enum>QTabWidget::South</enum>
                    </property>
@@ -571,7 +571,7 @@
                     <enum>QTabWidget::Rounded</enum>
                    </property>
                    <property name="currentIndex">
-                    <number>2</number>
+                    <number>0</number>
                    </property>
                    <widget class="QWidget" name="tab">
                     <attribute name="icon">
@@ -581,8 +581,32 @@
                     <attribute name="title">
                      <string>Add</string>
                     </attribute>
-                    <layout class="QGridLayout" name="gridLayout_10">
-                     <item row="0" column="0">
+                    <layout class="QGridLayout" name="gridLayout_10" columnstretch="5,1">
+                     <item row="1" column="1">
+                      <widget class="QPushButton" name="pushButton_18">
+                       <property name="text">
+                        <string>Add Order</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <spacer name="horizontalSpacer_10">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="0" column="0" colspan="2">
                       <layout class="QFormLayout" name="formLayout_2">
                        <property name="labelAlignment">
                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -597,14 +621,14 @@
                        <item row="0" column="1">
                         <layout class="QHBoxLayout" name="horizontalLayout">
                          <item>
-                          <widget class="QRadioButton" name="radioButton">
+                          <widget class="QRadioButton" name="om_organizationRadio">
                            <property name="text">
                             <string>Organization</string>
                            </property>
                           </widget>
                          </item>
                          <item>
-                          <widget class="QRadioButton" name="radioButton_2">
+                          <widget class="QRadioButton" name="om_customerRadio">
                            <property name="text">
                             <string>Customer</string>
                            </property>
@@ -620,7 +644,7 @@
                         </widget>
                        </item>
                        <item row="1" column="1">
-                        <widget class="QLineEdit" name="lineEdit_6"/>
+                        <widget class="QLineEdit" name="om_buyerId"/>
                        </item>
                        <item row="2" column="0">
                         <widget class="QLabel" name="label_19">
@@ -630,7 +654,7 @@
                         </widget>
                        </item>
                        <item row="2" column="1">
-                        <widget class="QTextEdit" name="textEdit"/>
+                        <widget class="QTextEdit" name="om_buyerAddress"/>
                        </item>
                        <item row="3" column="0">
                         <widget class="QLabel" name="label_14">
@@ -640,7 +664,7 @@
                         </widget>
                        </item>
                        <item row="3" column="1">
-                        <widget class="QLineEdit" name="lineEdit_3"/>
+                        <widget class="QLineEdit" name="om_purchaseOrder"/>
                        </item>
                        <item row="4" column="0">
                         <widget class="QLabel" name="label_15">
@@ -650,7 +674,7 @@
                         </widget>
                        </item>
                        <item row="4" column="1">
-                        <widget class="QLineEdit" name="lineEdit_4"/>
+                        <widget class="QLineEdit" name="om_reference"/>
                        </item>
                        <item row="5" column="0">
                         <widget class="QLabel" name="label_16">
@@ -660,7 +684,11 @@
                         </widget>
                        </item>
                        <item row="5" column="1">
-                        <widget class="QDateEdit" name="dateEdit_3"/>
+                        <widget class="QDateEdit" name="om_orderDate">
+                         <property name="displayFormat">
+                          <string>yyyy-MM-dd</string>
+                         </property>
+                        </widget>
                        </item>
                        <item row="6" column="0">
                         <widget class="QLabel" name="label_17">
@@ -670,7 +698,11 @@
                         </widget>
                        </item>
                        <item row="6" column="1">
-                        <widget class="QLineEdit" name="lineEdit_5"/>
+                        <widget class="QDateEdit" name="om_expDelDate">
+                         <property name="displayFormat">
+                          <string>yyyy-MM-dd</string>
+                         </property>
+                        </widget>
                        </item>
                        <item row="7" column="0">
                         <widget class="QLabel" name="label_20">
@@ -680,10 +712,55 @@
                         </widget>
                        </item>
                        <item row="7" column="1">
-                        <widget class="QComboBox" name="comboBox"/>
+                        <layout class="QGridLayout" name="gridLayout_15">
+                         <item row="0" column="0">
+                          <widget class="QComboBox" name="om_selectShipmentPref"/>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QPushButton" name="om_addShipmentPref">
+                           <property name="text">
+                            <string>Add Preference</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item row="10" column="1">
+                        <layout class="QGridLayout" name="gridLayout_17">
+                         <item row="0" column="0">
+                          <spacer name="horizontalSpacer_7">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item row="0" column="1">
+                          <widget class="QPushButton" name="pushButton_11">
+                           <property name="maximumSize">
+                            <size>
+                             <width>16777215</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="icon">
+                            <iconset>
+                             <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </item>
                        <item row="8" column="0" colspan="2">
-                        <widget class="QTableWidget" name="tableWidget_2">
+                        <widget class="QTableWidget" name="om_itemTable">
                          <row>
                           <property name="text">
                            <string>1</string>
@@ -725,40 +802,6 @@
                           </property>
                          </item>
                         </widget>
-                       </item>
-                       <item row="9" column="1">
-                        <layout class="QGridLayout" name="gridLayout_17">
-                         <item row="0" column="1">
-                          <widget class="QPushButton" name="pushButton_11">
-                           <property name="maximumSize">
-                            <size>
-                             <width>16777215</width>
-                             <height>16777215</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>Add</string>
-                           </property>
-                           <property name="icon">
-                            <iconset>
-                             <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</iconset>
-                           </property>
-                          </widget>
-                         </item>
-                         <item row="0" column="0">
-                          <spacer name="horizontalSpacer_7">
-                           <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
-                           </property>
-                           <property name="sizeHint" stdset="0">
-                            <size>
-                             <width>40</width>
-                             <height>20</height>
-                            </size>
-                           </property>
-                          </spacer>
-                         </item>
-                        </layout>
                        </item>
                       </layout>
                      </item>

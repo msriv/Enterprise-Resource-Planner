@@ -42,12 +42,11 @@ CREATE TABLE Business_mobileNumber (
   FOREIGN KEY (companyName) REFERENCES Business(companyName)
 );
 CREATE TABLE MRP (
-  uid INT NOT NULL,
+  uid INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   projectName VARCHAR(200) NOT NULL,
   resourceFileName VARCHAR(300) NOT NULL,
   projectStartDate DATE NOT NULL,
   dateCreated DATE NOT NULL,
   projectId INT NOT NULL,
-  PRIMARY KEY (uid),
   FOREIGN KEY (projectId) REFERENCES Projects(projectId)
 );

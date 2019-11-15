@@ -1,10 +1,6 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 
-"""
-Try this - Add a add new business button to this ui and if business table 
-is create a new ui with disabled fields until a new business is created.
-"""
 
 class Dashboard(QtWidgets.QMainWindow):
 
@@ -23,12 +19,28 @@ class Dashboard(QtWidgets.QMainWindow):
         self.form = Form()
         self.window = Window()
         self.form.setupUi(self.window)
-        self.window.show()
+        # self.window.show()
 
         # Programming UI
         self.nameOfUser = self.database.fetchOne("fname || ' ' || lname", "User", "username", self.username)
-        self.form.nameOfUser.setText(self.nameOfUser[0][0])
+        self.form.nameOfUser.setText(self.nameOfUser[0])
         self.businessList = self.database.fetchAll("companyName", "Business", "username", self.username)
+
+        self.deliverToButtonGroup = QtWidgets.QButtonGroup()
+        self.deliverToButtonGroup.addButton(self.form.om_organizationRadio)
+        self.deliverToButtonGroup.addButton(self.form.om_customerRadio)
+
+        self.productTable = self.form.om_itemTable
+        self.productTable.setColumnCount(7)
+        self.productTable.setHorizontalHeaderItem(6, QtWidgets.QTableWidgetItem(""))
+        self.btn = QtWidgets.QPushButton(self.productTable)
+        self.btn.setText('Hello')
+        self.hLayout = QtWidgets.QHBoxLayout()
+        self.hLayout.addWidget(self.btn)
+        self.cellWidget = QtWidgets.QWidget()
+        self.cellWidget.setLayout(self.hLayout)
+        self.productTable.setCellWidget(5, 6, self.cellWidget)
+
         for i in self.businessList:
             self.form.businessList.addItem(i[0])
         # Connect to Switch Window Function

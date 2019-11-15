@@ -24,13 +24,19 @@ class Database:
         self.conn.close()
 
     # Query Abstractions
-    def fetchOne(self, table, projection, key, value):
+    def fetchOne(self, projection, table, key, value):
         query = "SELECT {0} FROM {1} WHERE {2} = '{3}'".format(projection, table, key, value)
+        print(query)
         self.cursor.execute(query)
-        return self.cursor.fetchall()
+        return self.cursor.fetchone()
 
     def fetchAll(self, table, projection):
         query = "SELECT {0} FROM {1}".format(projection, table)
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
+    def fetchAll(self, projection, table, key, value):
+        query = "SELECT {0} FROM {1} WHERE {2} = '{3}'".format(projection, table, key, value)
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
@@ -66,8 +72,8 @@ class Database:
         else:
             return False
 
-    def business_exists(self):
-        query = "SELECT * FROM Business"
+    def business_exists(self, username):
+        query = "SELECT * FROM Business WHERE username = '{0}'".format(username)
         self.cursor.execute(query)
         if len(self.cursor.fetchall()) > 0:
             return True

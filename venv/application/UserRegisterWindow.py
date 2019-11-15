@@ -5,7 +5,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets, uic
 class UserRegisterWindow(QtWidgets.QMainWindow):
 
     # Create a pyqtSignal instance
-    switchLogin = QtCore.pyqtSignal()
+    switchLogin = QtCore.pyqtSignal(str)
 
     def __init__(self, db):
         super(UserRegisterWindow, self).__init__()
@@ -38,25 +38,29 @@ class UserRegisterWindow(QtWidgets.QMainWindow):
     def cancel(self):
         # Emits a signal in the environment
         self.window.close()
-        self.switchLogin.emit()
+        self.switchLogin.emit("")
 
     def register(self):
         # Fetching data from Form
         self.stakeHolderType = self.form.userStakeholder.currentText()
         self.userfname = self.form.userFnameEdit.text()
         self.userlname = self.form.userLnameEdit.text()
+        self.mobile = self.form.mobileEdit.text()
+        self.address = self.form.addressEdit.toPlainText()
         self.username = self.form.usernameEdit.text()
         self.password = self.form.passwordEdit.text()
         self.email = self.form.emailEdit.text()
         self.dob = self.form.dateEdit.text()
-
         # print(self.stakeHolderType, self.userfname, self.userlname, self.username, self.password
         # , self.email, self.dob)
-        self.data = "'"+self.stakeHolderType+"','"+self.userfname+"','"+self.userlname+\
-                    "','"+self.username+"','"+self.password+"','"+self.email+"','"+self.dob+"'"
+        self.data = "'"+self.userfname+"','"+self.userlname+"','"+self.stakeHolderType+\
+                    "','"+self.username+"','"+self.password+"','"+self.email+"','"+self.dob+"'," \
+                    "'"+self.address+"'"
 
+        self.data2 = "'"+self.mobile+"','"+self.username+"'"
         # Inserting data to database
         self.database.insertOne("User", self.data)
+        self.database.insertOne("User_mobileNumber", self.data2)
         # Emits a signal in the environment
         self.window.close()
-        self.switchLogin.emit()
+        self.switchLogin.emit(self.username)

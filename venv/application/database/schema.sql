@@ -6,6 +6,7 @@ CREATE TABLE User (
   password VARCHAR(30) NOT NULL,
   email VARCHAR(50) NOT NULL,
   dob DATE NOT NULL,
+  address VARCHAR(500) NOT NULL,
   PRIMARY KEY (username)
 );
 CREATE TABLE Business (
@@ -13,7 +14,7 @@ CREATE TABLE Business (
   companyOwnerName VARCHAR(100) NOT NULL,
   street VARCHAR(100) NOT NULL,
   area VARCHAR(100) NOT NULL,
-  houseNumber VARCHAR(30) NOT NULL,
+  buildingNumber VARCHAR(30) NOT NULL,
   pinCode VARCHAR(10) NOT NULL,
   gstNumber VARCHAR(40) NOT NULL,
   tinNumber VARCHAR(20) NOT NULL,

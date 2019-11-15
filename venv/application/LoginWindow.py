@@ -6,11 +6,13 @@ class LoginWindow(QtWidgets.QMainWindow):
 
     # Create a pyqtSignal instance
     switchNewUser = QtCore.pyqtSignal()
-    switchNewBusiness = QtCore.pyqtSignal()
-    switchDashboard = QtCore.pyqtSignal()
+    switchNewBusiness = QtCore.pyqtSignal(str)
+    switchDashboard = QtCore.pyqtSignal(str)
 
-    def __init__(self, db):
+    def __init__(self, db, username):
         super(LoginWindow, self).__init__()
+
+        self.username = username
 
         # DB
         self.database = db
@@ -24,6 +26,8 @@ class LoginWindow(QtWidgets.QMainWindow):
 
         # Programming UI
         self.form.passwordEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        if username != "":
+            self.form.usernameEdit.setText(self.username)
 
         # Connect to Switch Window Function
         self.form.registerBtn.clicked.connect(self.onClicked)
@@ -36,10 +40,11 @@ class LoginWindow(QtWidgets.QMainWindow):
         self.password = self.form.passwordEdit.text()
 
         if self.database.validate(["username", "password"], [self.username, self.password]):
-            if self.database.business_exists():
-                self.switchDashboard.emit()
+            if self.database.business_exists(self.username):
+                self.switchDashboard.emit(self.username)
+                self.window.close()
             else:
-                self.switchNewBusiness.emit()
+                self.switchNewBusiness.emit(self.username)
         else:
             self.form.messageLabel.setText("Invalid Username/Password")
 

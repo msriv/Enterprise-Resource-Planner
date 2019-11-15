@@ -15,8 +15,8 @@ class Controller:
         self.database = Database()
         pass
 
-    def show_login(self):
-        self.login = LoginWindow(self.database)
+    def show_login(self, username):
+        self.login = LoginWindow(self.database, username)
         self.login.switchNewUser.connect(self.show_userRegister)
         self.login.switchNewBusiness.connect(self.show_businessRegistration)
         self.login.switchDashboard.connect(self.show_dashboard)
@@ -28,14 +28,14 @@ class Controller:
         self.login.window.close()
         self.uRegister.window.show()
 
-    def show_dashboard(self):
-        self.dashboard = Dashboard(self.database)
-        self.dashboard.switchRegBusiness2.connect(self.show_businessRegistration)
+    def show_dashboard(self, username):
+        self.dashboard = Dashboard(self.database, username)
+        self.dashboard.switchRegBusiness.connect(self.show_businessRegistration)
+        self.dashboard.window.showFullScreen()
         # self.bRegister.window.close()
-        # self.dashboard.window.show()
 
-    def show_businessRegistration(self):
-        self.bRegister = BusinessRegisterWindow(self.database)
+    def show_businessRegistration(self, username):
+        self.bRegister = BusinessRegisterWindow(self.database, username)
         self.login.window.close()
         self.bRegister.switchDashboard.connect(self.show_dashboard)
         self.bRegister.window.show()
@@ -45,7 +45,7 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet(open("css/main.css", "r").read())
     controller = Controller()
-    controller.show_login()
+    controller.show_login("")
     sys.exit(app.exec_())
 
 

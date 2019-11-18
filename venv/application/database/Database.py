@@ -35,7 +35,7 @@ class Database:
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
-    def fetchAll(self, projection, table, key, value):
+    def fetchAllBy(self, projection, table, key, value):
         query = "SELECT {0} FROM {1} WHERE {2} = '{3}'".format(projection, table, key, value)
         self.cursor.execute(query)
         return self.cursor.fetchall()
@@ -73,7 +73,7 @@ class Database:
             return False
 
     def business_exists(self, username):
-        query = "SELECT * FROM Business WHERE username = '{0}'".format(username)
+        query = "SELECT companyName FROM Company_User WHERE username = '{0}'".format(username)
         self.cursor.execute(query)
         if len(self.cursor.fetchall()) > 0:
             return True

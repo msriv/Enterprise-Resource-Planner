@@ -7,6 +7,7 @@ from LoginWindow import LoginWindow
 from UserRegisterWindow import UserRegisterWindow
 from BusinessRegisterWindow import BusinessRegisterWindow
 from Dashboard import Dashboard
+from AddProject import AddProject
 from database.Database import Database
 
 class Controller:
@@ -30,7 +31,7 @@ class Controller:
 
     def show_dashboard(self, username):
         self.dashboard = Dashboard(self.database, username)
-        self.dashboard.switchRegBusiness.connect(self.show_businessRegistration)
+        self.dashboard.switchAddProject.connect(self.show_addProject)
         self.dashboard.window.showFullScreen()
         # self.bRegister.window.close()
 
@@ -40,7 +41,12 @@ class Controller:
         self.bRegister.switchDashboard.connect(self.show_dashboard)
         self.bRegister.window.show()
 
+    def show_addProject(self, companyName):
+        self.addProjectWin = AddProject(self.database, companyName)
+        self.addProjectWin.window.show()
 
+    def updateDashboardUI(self):
+        self.dashboard.updateUI()
 def main():
     app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet(open("css/main.css", "r").read())

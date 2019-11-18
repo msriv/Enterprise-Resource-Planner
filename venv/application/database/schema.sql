@@ -19,14 +19,22 @@ CREATE TABLE Business (
   gstNumber VARCHAR(40) NOT NULL,
   tinNumber VARCHAR(20) NOT NULL,
   pan VARCHAR(20) NOT NULL,
-  username VARCHAR(30) NOT NULL,
-  PRIMARY KEY (companyName),
-  FOREIGN KEY (username) REFERENCES User(username)
+  PRIMARY KEY (companyName)
+);
+CREATE TABLE Company_User (
+    companyName VARCHAR(200) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    FOREIGN KEY (companyName) REFERENCES Business(companyName)
+    FOREIGN KEY (username) REFERENCES User(Username)
 );
 CREATE TABLE Projects (
   projectId INT NOT NULL,
   projectName VARCHAR(200) NOT NULL,
   companyName VARCHAR(200) NOT NULL,
+  projectDesc VARCHAR(1000) NOT NULL,
+  startDate DATE NOT NULL,
+  endDate DATE NOT NULL,
+  pManager VARCHAR(100) NOT NULL,
   PRIMARY KEY (projectId),
   FOREIGN KEY (companyName) REFERENCES Business(companyName)
 );

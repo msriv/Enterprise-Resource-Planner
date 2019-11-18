@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087">
-        <schema name="main" object-types="constraint, table, view, index, column, dataset trigger" />
+        <schema name="main" object-types="view, table, constraint, index, dataset trigger, column" />
       </connection>
     </loaded-nodes>
   </component>
@@ -35,14 +35,24 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" object-ref="schemas/main/tables/Projects" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="536c3d9e-a090-4abf-8ca8-544d55f6e087" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Business" active-filter-id="">
+      <filter id="384e386f-6338-46b7-a035-3f92d7d1dc8c" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="companyName" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.User_mobileNumber" active-filter-id="" />
     <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.User" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Business_mobileNumber" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Company_User" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Projects" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.MRP" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
@@ -113,7 +123,7 @@
           <session-management value="true" />
           <ddl-file-binding value="true" />
           <database-logging value="false" />
-          <connect-automatically value="true" />
+          <connect-automatically value="false" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="true" />
           <environment-type value="default" />

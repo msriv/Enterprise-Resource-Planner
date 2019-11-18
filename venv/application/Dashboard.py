@@ -1,11 +1,13 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
-
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
+import random
 
 class Dashboard(QtWidgets.QMainWindow):
 
-    switchRegBusiness = QtCore.pyqtSignal()
-    switchRegBusiness2 = QtCore.pyqtSignal()
+    switchAddProject = QtCore.pyqtSignal(str)
 
     def __init__(self, db, username):
         super(Dashboard, self).__init__()
@@ -24,27 +26,37 @@ class Dashboard(QtWidgets.QMainWindow):
         # Programming UI
         self.nameOfUser = self.database.fetchOne("fname || ' ' || lname", "User", "username", self.username)
         self.form.nameOfUser.setText(self.nameOfUser[0])
-        self.businessList = self.database.fetchAll("companyName", "Business", "username", self.username)
+        self.businessList = self.database.fetchAllBy("companyName", "Company_User", "username", self.username)
+
+        for i in self.businessList:
+            self.form.businessList.addItem(i[0])
 
         self.deliverToButtonGroup = QtWidgets.QButtonGroup()
         self.deliverToButtonGroup.addButton(self.form.om_organizationRadio)
         self.deliverToButtonGroup.addButton(self.form.om_customerRadio)
 
         self.productTable = self.form.om_itemTable
-        self.productTable.setColumnCount(7)
-        self.productTable.setHorizontalHeaderItem(6, QtWidgets.QTableWidgetItem(""))
-        self.btn = QtWidgets.QPushButton(self.productTable)
-        self.btn.setText('Hello')
-        self.hLayout = QtWidgets.QHBoxLayout()
-        self.hLayout.addWidget(self.btn)
-        self.cellWidget = QtWidgets.QWidget()
-        self.cellWidget.setLayout(self.hLayout)
-        self.productTable.setCellWidget(5, 6, self.cellWidget)
 
-        for i in self.businessList:
-            self.form.businessList.addItem(i[0])
+        self.figure = plt.figure()
+        self.canvas = FigureCanvas(self.figure)
+        self.form.mrpLayout.setColumnStretch(0, 2)
+        self.form.mrpLayout.setColumnStretch(1, 2)
+        self.form.mrpLayout.setRowStretch(0, 4)
+        self.form.mrpLayout.addWidget(self.canvas, 0, 1)
+
+        self.plot()
+
+        self.form.addProject.clicked.connect(self.addProjectWindow)
+    def addProjectWindow(self):
+
+        self.companyName = self.form.businessList.currentItem().text()
+        print(self.companyName)
+        self.switchAddProject.emit(self.companyName)
+
+    def plot(self):
+        print("Hello")
         # Connect to Switch Window Function
         # self.form.registerBtn.clicked.connect(self.onClicked)
 
-
-
+    def updateUI(self):
+        self.projectList = self.database.fetchAll("Project")

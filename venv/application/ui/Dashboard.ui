@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1685</width>
-    <height>981</height>
+    <height>983</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,6 +18,29 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0" columnstretch="0,0,0,0,0,0">
+    <item row="2" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="2" colspan="2">
+     <widget class="QListWidget" name="businessList">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="5">
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
@@ -27,6 +50,19 @@
        <size>
         <width>40</width>
         <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="2" colspan="3">
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
        </size>
       </property>
      </spacer>
@@ -44,63 +80,24 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_55">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
+      <property name="text">
+       <string>Welcome,</string>
       </property>
-     </spacer>
-    </item>
-    <item row="0" column="4">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
     <item row="2" column="4" rowspan="2">
-     <layout class="QGridLayout" name="gridLayout" columnstretch="1,7,0">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_54">
-        <property name="font">
-         <font>
-          <family>Arial</family>
-         </font>
-        </property>
-        <property name="text">
-         <string>Please select a project</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_2">
-        <property name="font">
-         <font>
-          <family>Arial</family>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton_17">
-        <property name="text">
-         <string>Add Project</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="3">
+     <layout class="QGridLayout" name="gridLayout" columnstretch="1,0">
+      <item row="0" column="0" colspan="2">
        <widget class="QTabWidget" name="mainTabWidget">
         <property name="currentIndex">
          <number>1</number>
@@ -403,7 +400,7 @@
                 </font>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="mrpPage">
                 <property name="geometry">
@@ -411,7 +408,7 @@
                   <x>0</x>
                   <y>0</y>
                   <width>1214</width>
-                  <height>703</height>
+                  <height>719</height>
                  </rect>
                 </property>
                 <attribute name="icon">
@@ -421,7 +418,42 @@
                 <attribute name="label">
                  <string>Material Requirement Planning</string>
                 </attribute>
-                <layout class="QGridLayout" name="gridLayout_7" rowstretch="0,0" columnstretch="3,0,0,0">
+                <layout class="QGridLayout" name="gridLayout_16">
+                 <item row="1" column="2">
+                  <widget class="QPushButton" name="addTask">
+                   <property name="text">
+                    <string>Add</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="4">
+                  <widget class="QPushButton" name="pushButton_3">
+                   <property name="text">
+                    <string>Reset Graph</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/redo.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/redo.svg</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="3">
+                  <spacer name="horizontalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
                  <item row="1" column="0">
                   <spacer name="horizontalSpacer_3">
                    <property name="orientation">
@@ -435,113 +467,178 @@
                    </property>
                   </spacer>
                  </item>
-                 <item row="1" column="2">
-                  <spacer name="horizontalSpacer_4">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QPushButton" name="pushButton">
-                   <property name="text">
-                    <string>Add</string>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</iconset>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="3">
-                  <widget class="QPushButton" name="pushButton_3">
-                   <property name="text">
-                    <string>Reset Graph</string>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/redo.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/redo.svg</iconset>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0" colspan="2">
-                  <widget class="QGroupBox" name="groupBox_3">
-                   <property name="title">
-                    <string>Add Task</string>
-                   </property>
-                   <layout class="QFormLayout" name="formLayout">
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_8">
-                      <property name="text">
-                       <string>Title</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QLineEdit" name="lineEdit"/>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="label_9">
-                      <property name="text">
-                       <string>Description</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QLineEdit" name="lineEdit_2"/>
-                    </item>
-                    <item row="2" column="0">
-                     <widget class="QLabel" name="label_10">
-                      <property name="text">
-                       <string>Start Time</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <widget class="QDateEdit" name="dateEdit"/>
-                    </item>
-                    <item row="3" column="0">
-                     <widget class="QLabel" name="label_11">
-                      <property name="text">
-                       <string>End Time</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="3" column="1">
-                     <widget class="QDateEdit" name="dateEdit_2"/>
-                    </item>
-                    <item row="4" column="0">
-                     <widget class="QLabel" name="label_12">
-                      <property name="text">
-                       <string>Prioritize</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="4" column="1">
-                     <widget class="QCheckBox" name="checkBox">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="0" column="2" colspan="2">
-                  <widget class="QLabel" name="label_7">
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="pixmap">
-                    <pixmap>../../../../ERP/venv/application/images/Figure_1.png</pixmap>
-                   </property>
-                  </widget>
+                 <item row="0" column="0" colspan="5">
+                  <layout class="QGridLayout" name="mrpLayout">
+                   <item row="0" column="0" rowspan="2">
+                    <widget class="QGroupBox" name="groupBox_3">
+                     <property name="font">
+                      <font>
+                       <pointsize>17</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="title">
+                      <string>Add Task</string>
+                     </property>
+                     <layout class="QFormLayout" name="formLayout">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_7">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Select Project</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <layout class="QHBoxLayout" name="horizontalLayout_3">
+                        <item>
+                         <widget class="QComboBox" name="projectTitle">
+                          <property name="font">
+                           <font>
+                            <pointsize>10</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="addProject">
+                          <property name="font">
+                           <font>
+                            <pointsize>10</pointsize>
+                            <weight>50</weight>
+                            <bold>false</bold>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/plus.svg</iconset>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_8">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Title</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="taskTitle">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_9">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Description</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="taskDescription">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_10">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Start Time</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QDateEdit" name="startDateEdit">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="displayFormat">
+                         <string>yyyy-MM-dd</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="0">
+                       <widget class="QLabel" name="label_11">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>End Time</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="1">
+                       <widget class="QDateEdit" name="endDateEdit">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                          <weight>50</weight>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="displayFormat">
+                         <string>yyyy-MM-dd</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                 </layout>
                </widget>
@@ -551,7 +648,7 @@
                   <x>0</x>
                   <y>0</y>
                   <width>1214</width>
-                  <height>703</height>
+                  <height>719</height>
                  </rect>
                 </property>
                 <attribute name="icon">
@@ -1092,7 +1189,7 @@
                 </font>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="page_3">
                 <property name="geometry">
@@ -1100,7 +1197,7 @@
                   <x>0</x>
                   <y>0</y>
                   <width>1214</width>
-                  <height>676</height>
+                  <height>692</height>
                  </rect>
                 </property>
                 <attribute name="label">
@@ -1745,8 +1842,8 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>1214</width>
-                  <height>676</height>
+                  <width>100</width>
+                  <height>30</height>
                  </rect>
                 </property>
                 <attribute name="label">
@@ -1789,8 +1886,8 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="2" colspan="3">
-     <spacer name="verticalSpacer_3">
+    <item row="0" column="4">
+     <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -1801,31 +1898,6 @@
        </size>
       </property>
      </spacer>
-    </item>
-    <item row="2" column="2" colspan="2">
-     <widget class="QListWidget" name="businessList">
-      <property name="font">
-       <font>
-        <family>Arial</family>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="label_55">
-      <property name="font">
-       <font>
-        <family>Arial</family>
-        <pointsize>17</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Welcome,</string>
-      </property>
-     </widget>
     </item>
     <item row="3" column="2">
      <widget class="QPushButton" name="pushButton_15">

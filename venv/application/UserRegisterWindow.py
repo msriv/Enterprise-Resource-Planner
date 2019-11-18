@@ -23,11 +23,16 @@ class UserRegisterWindow(QtWidgets.QMainWindow):
         self.form.userCancelBtn.clicked.connect(self.cancel)
         self.form.userRegBtn.clicked.connect(self.register)
 
+
         # Programming UI Components
         self.form.userStakeholder.addItems(['Employees', 'Owner', 'Admin', 'Management', 'HR'])
         self.form.passwordEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.form.confirmPasswordEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.form.confirmPasswordEdit.textChanged.connect(self.matchPassword)
+        self.companyList = self.database.fetchAll("Business", "companyName")
+        self.form.companyList.addItem("Select a Company")
+        for i in self.companyList:
+            self.form.companyList.addItem(i[0])
 
     def matchPassword(self):
         if self.form.passwordEdit.text() != self.form.confirmPasswordEdit.text():
@@ -56,14 +61,22 @@ class UserRegisterWindow(QtWidgets.QMainWindow):
 
         self.dataArr = [self.userfname, self.userlname, self.stakeHolderType, self.username, self.password,
                         self.email, self.dob, self.address]
-        self.data = delimiter.join(self.dataArr)
-
         self.dataArr2 = [self.mobile, self.username]
+
+        self.data = delimiter.join(self.dataArr)
         self.data2 = delimiter.join(self.dataArr2)
 
         # Inserting data to database
         self.database.insertOne("User", "'"+self.data+"'")
         self.database.insertOne("User_mobileNumber", "'"+self.data2+"'")
+
+        if self.form.companyList.currentIndex() != 0:
+            self.companyName = str(self.form.companyList.currentText())
+            self.dataArr3 = [self.companyName, self.username]
+            self.data3 = delimiter.join(self.dataArr3)
+            self.database.insertOne("Company_User", "'" + self.data3 + "'")
+
+
         # Emits a signal in the environment
         self.window.close()
         self.switchLogin.emit(self.username)

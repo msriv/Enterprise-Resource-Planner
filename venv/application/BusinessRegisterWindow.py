@@ -42,14 +42,22 @@ class BusinessRegisterWindow(QtWidgets.QMainWindow):
         self.companyPAN = self.form.companyPAN.text()
 
         # Insert into Business Table
-        self.data = "'" + self.companyName + "','" + self.companyOwner + "','" + self.comStreet + \
-                    "','" + self.comArea + "','" + self.comBuildingNumber + "','" + self.comPincode + "','" \
-                    + self.companyGST + "','" + self.companyTIN + "','" + self.companyPAN + "','" + self.username + "'"
+        delimiter = "', '"
 
-        self.data2 = "'" + self.mobileNumber + "','" + self.companyName + "'"
+        self.dataArr = [self.companyName, self.companyOwner, self.comStreet, self.comArea, self.comBuildingNumber,
+                        self.comPincode, self.companyGST, self.companyTIN, self.companyPAN]
 
-        self.database.insertOne("Business", self.data)
-        self.database.insertOne("Business_mobileNumber", self.data2)
+        self.dataArr2 = [self.mobileNumber, self.companyName]
+
+        self.dataArr3 = [self.companyName, self.username]
+
+        self.data = delimiter.join(self.dataArr)
+        self.data2 = delimiter.join(self.dataArr2)
+        self.data3 = delimiter.join(self.dataArr3)
+
+        self.database.insertOne("Business", "", "'"+self.data+"'")
+        self.database.insertOne("Business_mobileNumber", "", "'"+self.data2+"'")
+        self.database.insertOne("Company_User", "", "'"+self.data3+"'")
 
         self.switchDashboard.emit(self.username)
 

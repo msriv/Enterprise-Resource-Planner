@@ -22,4 +22,18 @@ class AddProject(QtWidgets.QMainWindow):
         self.form.addPBtn.clicked.connect(self.newProject)
 
     def newProject(self):
-        self.switchDashboard.emit()
+        self.pName = self.form.pNameEdit.text()
+        self.pDesc = self.form.pDescEdit.toPlainText()
+        self.pSDate = self.form.pStartDate.text()
+        self.pEDate = self.form.pEndDate.text()
+        self.pManager = self.form.pManager.text()
+
+        delimiter = "', '"
+        self.dataArr = [self.pName, self.companyName, self.pDesc, self.pSDate, self.pEDate, self.pManager]
+
+        self.data = delimiter.join(self.dataArr)
+
+        self.database.insertOne("Projects", "projectName, companyName, projectDesc, startDate, endDate, pManager", "'"+self.data+"'")
+
+        self.switchDashboard.emit("Project")
+        self.close()

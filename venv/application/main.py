@@ -6,6 +6,7 @@ from PyQt5.QtCore import *
 from LoginWindow import LoginWindow
 from UserRegisterWindow import UserRegisterWindow
 from BusinessRegisterWindow import BusinessRegisterWindow
+from AddDelivery import AddDelivery
 from Dashboard import Dashboard
 from AddProject import AddProject
 from database.Database import Database
@@ -32,6 +33,7 @@ class Controller:
     def show_dashboard(self, username):
         self.dashboard = Dashboard(self.database, username)
         self.dashboard.switchAddProject.connect(self.show_addProject)
+        self.dashboard.switchAddDelivery.connect(self.show_addDelivery)
         self.dashboard.window.showFullScreen()
         # self.bRegister.window.close()
 
@@ -43,10 +45,17 @@ class Controller:
 
     def show_addProject(self, companyName):
         self.addProjectWin = AddProject(self.database, companyName)
+        self.addProjectWin.switchDashboard.connect(self.updateDashboardUI)
         self.addProjectWin.window.show()
 
-    def updateDashboardUI(self):
-        self.dashboard.updateUI()
+    def updateDashboardUI(self, source):
+        self.dashboard.updateUI(source)
+
+    def show_addDelivery(self):
+        self.addDeliveryPref = AddDelivery(self.database)
+        self.addDeliveryPref.switchDashboardOM.connect(self.updateDashboardUI)
+        self.addDeliveryPref.window.show()
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet(open("css/main.css", "r").read())

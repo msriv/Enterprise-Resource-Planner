@@ -30,7 +30,7 @@ class Database:
         self.cursor.execute(query)
         return self.cursor.fetchone()
 
-    def fetchAll(self, table, projection):
+    def fetchAll(self, projection, table):
         query = "SELECT {0} FROM {1}".format(projection, table)
         self.cursor.execute(query)
         return self.cursor.fetchall()
@@ -40,8 +40,11 @@ class Database:
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
-    def insertOne(self, table, values):
-        query = 'INSERT INTO {0} VALUES ({1})'.format(table, values)
+    def insertOne(self, table, projection, values):
+        if projection == "":
+            query = 'INSERT INTO {0} VALUES ({1})'.format(table, values)
+        else:
+            query = 'INSERT INTO {0}({1}) VALUES ({2})'.format(table, projection, values)
         print(query)
         self.cursor.execute(query)
         self.conn.commit()

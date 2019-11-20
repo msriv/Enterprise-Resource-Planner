@@ -23,6 +23,15 @@ class LoginWindow(QtWidgets.QMainWindow):
         self.window = Window()
         self.form.setupUi(self.window)
         self.window.setWindowTitle("Login")
+        # print(self.database.fetchAllBy("key, value", "_init_Config", "key", "storagePath"))
+        # if len(self.database.fetchAllBy("key, value", "_init_Config", "key", "storagePath")) == 0:
+        #     self.storagePath, self.ok = QtWidgets.QInputDialog.getText(self, 'Storage',
+        #                                 'Initialize the Storage Path')
+        #     if self.ok:
+        #         delimiter = "', '"
+        #         self.dataArr = ["storagePath", str(self.storagePath)]
+        #         self.data = delimiter.join(self.dataArr)
+        #         self.database.insertOne("_init_Config", "key, value", "'" + self.data + "'")
 
         # Programming UI
         self.form.passwordEdit.setEchoMode(QtWidgets.QLineEdit.Password)

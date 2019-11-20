@@ -67,8 +67,8 @@ class UserRegisterWindow(QtWidgets.QMainWindow):
         self.data2 = delimiter.join(self.dataArr2)
 
         # Inserting data to database
-        self.database.insertOne("User", "'"+self.data+"'")
-        self.database.insertOne("User_mobileNumber", "'"+self.data2+"'")
+        self.database.insertOne("User", "", "'"+self.data+"'")
+        self.database.insertOne("User_mobileNumber", "", "'"+self.data2+"'")
 
         if self.form.companyList.currentIndex() != 0:
             self.companyName = str(self.form.companyList.currentText())

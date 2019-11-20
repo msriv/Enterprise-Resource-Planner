@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087">
-        <schema name="main" object-types="view, table, constraint, index, dataset trigger, column" />
+        <schema name="main" object-types="view, table, constraint, dataset trigger, index, column" />
       </connection>
     </loaded-nodes>
   </component>
@@ -35,9 +35,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" object-ref="schemas/main/tables/Projects" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="536c3d9e-a090-4abf-8ca8-544d55f6e087" />
@@ -53,7 +51,7 @@
     <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Business_mobileNumber" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Company_User" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.Projects" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.MRP" active-filter-id="" />
+    <filter-actions connection-id="536c3d9e-a090-4abf-8ca8-544d55f6e087" dataset="main.MRP" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

@@ -28,14 +28,13 @@ CREATE TABLE Company_User (
     FOREIGN KEY (username) REFERENCES User(Username)
 );
 CREATE TABLE Projects (
-  projectId INT NOT NULL,
+  projectId INTEGER PRIMARY KEY AUTOINCREMENT,
   projectName VARCHAR(200) NOT NULL,
   companyName VARCHAR(200) NOT NULL,
   projectDesc VARCHAR(1000) NOT NULL,
   startDate DATE NOT NULL,
   endDate DATE NOT NULL,
   pManager VARCHAR(100) NOT NULL,
-  PRIMARY KEY (projectId),
   FOREIGN KEY (companyName) REFERENCES Business(companyName)
 );
 CREATE TABLE User_mobileNumber (
@@ -55,6 +54,45 @@ CREATE TABLE MRP (
   resourceFileName VARCHAR(300) NOT NULL,
   projectStartDate DATE NOT NULL,
   dateCreated DATE NOT NULL,
-  projectId INT NOT NULL,
-  FOREIGN KEY (projectId) REFERENCES Projects(projectId)
+  companyName VARCHAR(200) NOT NULL,
+  FOREIGN KEY (companyName) REFERENCES Business(companyName)
+  FOREIGN KEY (projectName) REFERENCES Projects(projectName)
+);
+CREATE TABLE _init_Config (
+  uid INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  key VARCHAR(500) NOT NULL,
+  value VARCHAR(300) NOT NULL
+);
+CREATE TABLE ShipmentPref(
+    deliveryService VARCHAR(200) NOT NULL PRIMARY KEY,
+    pointOfContact VARCHAR(200) NOT NULL,
+    address VARCHAR(500) NOT NULL,
+    mobileNuber VARCHAR(10) NOT NULL
+);
+CREATE TABLE OM (
+    deliverTo VARCHAR(50) NOT NULL,
+    buyerName VARCHAR(100) NOT NULL,
+    buyerAddress VARCHAR(300) NOT NULL,
+    purchaseOrderNumber INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    orderDate DATE NOT NULL,
+    expectedDeliveryDate DATE NOT NULL,
+    shipmentPref VARCHAR(200) NOT NULL,
+    companyName VARCHAR(200) NOT NULL,
+    FOREIGN KEY (companyName) REFERENCES Business(companyName)
+);
+
+CREATE TABLE Inventory (
+    itemType VARCHAR(50) NOT NULL,
+    itemId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    thumbnail VARCHAR(300),
+    itemName VARCHAR(200) NOT NULL,
+    itemSKU VARCHAR(200),
+    itemUnit VARCHAR(100),
+    returnable INT NOT NULL,
+    manufacturer VARCHAR(200),
+    ISBN VARCHAR(200),
+    sellingPrice INT NOT NULL,
+    sellingAccount VARCHAR(100) NOT NULL,
+    costPrice INT NOT NULL,
+    costAccount VARCHAR(100) NOT NULL
 );

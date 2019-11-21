@@ -9,6 +9,7 @@ from BusinessRegisterWindow import BusinessRegisterWindow
 from AddDelivery import AddDelivery
 from Dashboard import Dashboard
 from AddProject import AddProject
+from ItemSearch import ItemSearch
 from database.Database import Database
 
 class Controller:
@@ -34,6 +35,7 @@ class Controller:
         self.dashboard = Dashboard(self.database, username)
         self.dashboard.switchAddProject.connect(self.show_addProject)
         self.dashboard.switchAddDelivery.connect(self.show_addDelivery)
+        self.dashboard.switchInventoryInsert.connect(self.show_itemSearch)
         self.dashboard.window.showFullScreen()
         # self.bRegister.window.close()
 
@@ -55,6 +57,14 @@ class Controller:
         self.addDeliveryPref = AddDelivery(self.database)
         self.addDeliveryPref.switchDashboardOM.connect(self.updateDashboardUI)
         self.addDeliveryPref.window.show()
+
+    def show_itemSearch(self):
+        self.itemSearch = ItemSearch(self.database)
+        self.itemSearch.switchDashboard.connect(self.updateItemTable)
+        self.itemSearch.window.show()
+
+    def updateItemTable(self, itemId):
+        self.dashboard.addToItemTable(itemId)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)

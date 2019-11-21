@@ -91,8 +91,8 @@ CREATE TABLE Inventory (
     returnable INT NOT NULL,
     manufacturer VARCHAR(200),
     ISBN VARCHAR(200),
-    sellingPrice INT NOT NULL,
-    sellingAccount VARCHAR(100) NOT NULL,
-    costPrice INT NOT NULL,
-    costAccount VARCHAR(100) NOT NULL
+    sellingPrice INT,
+    sellingAccount VARCHAR(100),
+    costPrice INT,
+    costAccount VARCHAR(100)
 );

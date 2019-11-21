@@ -100,7 +100,7 @@
       <item row="0" column="0" colspan="2">
        <widget class="QTabWidget" name="mainTabWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="dashboardTab">
          <attribute name="icon">
@@ -124,9 +124,242 @@
             <property name="title">
              <string>DASHBOARD</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout_4" rowstretch="5" columnstretch="4,0">
-             <item row="0" column="0" colspan="2">
-              <layout class="QGridLayout" name="dashBoardGridLayout" columnstretch="0"/>
+            <layout class="QGridLayout" name="gridLayout_4" rowstretch="5,2" columnstretch="4,2,2">
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="maximumSize">
+                <size>
+                 <width>600</width>
+                 <height>150</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap>../../../../ERP/venv/application/images/Figure_1.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" colspan="2">
+              <widget class="QTableWidget" name="tableWidget">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <row>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </row>
+               <row>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </row>
+               <column>
+                <property name="text">
+                 <string>New Column</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Transaction Id</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Client</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Column2</string>
+                </property>
+               </column>
+               <item row="0" column="0">
+                <property name="text">
+                 <string>aqd24d23</string>
+                </property>
+               </item>
+               <item row="0" column="1">
+                <property name="text">
+                 <string>XYZ</string>
+                </property>
+               </item>
+               <item row="0" column="2">
+                <property name="text">
+                 <string>34</string>
+                </property>
+               </item>
+               <item row="0" column="3">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="1" column="0">
+                <property name="text">
+                 <string>ea43r4</string>
+                </property>
+               </item>
+               <item row="1" column="1">
+                <property name="text">
+                 <string>ABC</string>
+                </property>
+               </item>
+               <item row="1" column="2">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item row="1" column="3">
+                <property name="text">
+                 <string>79</string>
+                </property>
+               </item>
+               <item row="2" column="0">
+                <property name="text">
+                 <string>r4g4t4t4t</string>
+                </property>
+               </item>
+               <item row="2" column="1">
+                <property name="text">
+                 <string>MNO</string>
+                </property>
+               </item>
+               <item row="2" column="2">
+                <property name="text">
+                 <string>57</string>
+                </property>
+               </item>
+               <item row="3" column="0">
+                <property name="text">
+                 <string>4thdhgaf4</string>
+                </property>
+               </item>
+               <item row="3" column="1">
+                <property name="text">
+                 <string>RQS</string>
+                </property>
+               </item>
+               <item row="3" column="2">
+                <property name="text">
+                 <string>78</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="3">
+              <layout class="QGridLayout" name="gridLayout_6" columnstretch="2,0,0">
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_2">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>300</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../../../ERP/venv/application/images/chart6.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_3">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>300</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../../../ERP/venv/application/images/chart4.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_4">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>300</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../../../ERP/venv/application/images/chart5.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_5">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>300</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../../../ERP/venv/application/images/chart7.png</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" rowspan="2">
+                <widget class="QLabel" name="label">
+                 <property name="maximumSize">
+                  <size>
+                   <width>600</width>
+                   <height>600</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../../../../ERP/venv/application/images/chart2.png</pixmap>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </widget>
@@ -479,9 +712,9 @@
                 <property name="geometry">
                  <rect>
                   <x>0</x>
-                  <y>-89</y>
-                  <width>520</width>
-                  <height>492</height>
+                  <y>0</y>
+                  <width>1214</width>
+                  <height>719</height>
                  </rect>
                 </property>
                 <attribute name="icon">
@@ -501,7 +734,7 @@
                     <enum>QTabWidget::Rounded</enum>
                    </property>
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>2</number>
                    </property>
                    <widget class="QWidget" name="tab">
                     <attribute name="icon">
@@ -743,6 +976,254 @@
                      </item>
                     </layout>
                    </widget>
+                   <widget class="QWidget" name="tab_2">
+                    <attribute name="icon">
+                     <iconset>
+                      <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/trash.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/trash.svg</iconset>
+                    </attribute>
+                    <attribute name="title">
+                     <string>Delete</string>
+                    </attribute>
+                    <layout class="QGridLayout" name="gridLayout_13" columnstretch="2,4,4,1">
+                     <item row="1" column="3">
+                      <widget class="QPushButton" name="pushButton_4">
+                       <property name="text">
+                        <string>Search by Purchase Order Number</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QPushButton" name="pushButton_2">
+                       <property name="text">
+                        <string>Search by Buyer Id</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="3">
+                      <widget class="QPushButton" name="pushButton_5">
+                       <property name="text">
+                        <string>Search by Order Date</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0" colspan="4">
+                      <widget class="QTableWidget" name="tableWidget_3">
+                       <column>
+                        <property name="text">
+                         <string>Item Thumbnail</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Item Details</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Account</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>New Column</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Rate</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Amount</string>
+                        </property>
+                       </column>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_23">
+                       <property name="text">
+                        <string>Order Date</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_22">
+                       <property name="text">
+                        <string>Purchase Order No</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_21">
+                       <property name="text">
+                        <string>Buyer Name</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="3">
+                      <widget class="QPushButton" name="pushButton_6">
+                       <property name="text">
+                        <string>Delete</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/trash.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/trash.svg</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1" colspan="2">
+                      <widget class="QDateEdit" name="dateEdit_4">
+                       <property name="displayFormat">
+                        <string>yyyy-MM-dd</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1" colspan="2">
+                      <widget class="QLineEdit" name="lineEdit_8"/>
+                     </item>
+                     <item row="0" column="1" colspan="2">
+                      <widget class="QLineEdit" name="lineEdit_7"/>
+                     </item>
+                     <item row="4" column="0" colspan="3">
+                      <spacer name="horizontalSpacer_5">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="tab_3">
+                    <attribute name="icon">
+                     <iconset>
+                      <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/pen.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/pen.svg</iconset>
+                    </attribute>
+                    <attribute name="title">
+                     <string>Update</string>
+                    </attribute>
+                    <layout class="QGridLayout" name="gridLayout_14" columnstretch="1,4,1">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_24">
+                       <property name="text">
+                        <string>Buyer Id</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="lineEdit_10"/>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QPushButton" name="pushButton_10">
+                       <property name="text">
+                        <string>Search by Buyer Id</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_25">
+                       <property name="text">
+                        <string>Purchase Order No</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="lineEdit_9"/>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QPushButton" name="pushButton_9">
+                       <property name="text">
+                        <string>Search by Purchase Order Number</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_26">
+                       <property name="text">
+                        <string>Order Date</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QDateEdit" name="dateEdit_5">
+                       <property name="displayFormat">
+                        <string>yyyy-MM-dd</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="2">
+                      <widget class="QPushButton" name="pushButton_7">
+                       <property name="text">
+                        <string>Search by Order Date</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0" colspan="3">
+                      <widget class="QTableWidget" name="tableWidget_4">
+                       <column>
+                        <property name="text">
+                         <string>Item Thumbnail</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Item Details</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Account</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>New Column</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Rate</string>
+                        </property>
+                       </column>
+                       <column>
+                        <property name="text">
+                         <string>Amount</string>
+                        </property>
+                       </column>
+                      </widget>
+                     </item>
+                     <item row="4" column="2">
+                      <widget class="QPushButton" name="pushButton_8">
+                       <property name="text">
+                        <string>Update</string>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/pen.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/pen.svg</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0" colspan="2">
+                      <spacer name="horizontalSpacer_6">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>952</width>
+                         <height>39</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
                   </widget>
                  </item>
                 </layout>
@@ -795,8 +1276,8 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>520</width>
-                  <height>425</height>
+                  <width>1214</width>
+                  <height>721</height>
                  </rect>
                 </property>
                 <attribute name="label">
@@ -1131,7 +1612,7 @@
                 <property name="geometry">
                  <rect>
                   <x>0</x>
-                  <y>-11</y>
+                  <y>0</y>
                   <width>1194</width>
                   <height>732</height>
                  </rect>
@@ -1500,6 +1981,24 @@
                       </widget>
                      </item>
                     </layout>
+                   </widget>
+                   <widget class="QWidget" name="tab_7">
+                    <attribute name="icon">
+                     <iconset>
+                      <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/trash.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/trash.svg</iconset>
+                    </attribute>
+                    <attribute name="title">
+                     <string>Remove</string>
+                    </attribute>
+                   </widget>
+                   <widget class="QWidget" name="tab_8">
+                    <attribute name="icon">
+                     <iconset>
+                      <normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/pen.svg</normaloff>../../../../../fontawesome-free-5.9.0-desktop/svgs/solid/pen.svg</iconset>
+                    </attribute>
+                    <attribute name="title">
+                     <string>Update</string>
+                    </attribute>
                    </widget>
                   </widget>
                  </item>

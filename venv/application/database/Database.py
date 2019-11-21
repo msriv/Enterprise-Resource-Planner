@@ -40,6 +40,12 @@ class Database:
         self.cursor.execute(query)
         return self.cursor.fetchall()
 
+    def fetchAllByInt(self, projection, table, key, value):
+        query = "SELECT {0} FROM {1} WHERE {2} = {3}".format(projection, table, key, value)
+        print(query)
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
     def insertOne(self, table, projection, values):
         if projection == "":
             query = 'INSERT INTO {0} VALUES ({1})'.format(table, values)

@@ -14,6 +14,7 @@ class Dashboard(QtWidgets.QMainWindow):
 
     switchAddProject = QtCore.pyqtSignal(str)
     switchAddDelivery = QtCore.pyqtSignal()
+    switchInventoryInsert = QtCore.pyqtSignal()
 
     def __init__(self, db, username):
         super(Dashboard, self).__init__()
@@ -36,14 +37,24 @@ class Dashboard(QtWidgets.QMainWindow):
         self.form.nameOfUser.setText(self.nameOfUser[0])
         self.businessList = self.database.fetchAllBy("companyName", "Company_User", "username", self.username)
 
+        if self.form.itemSalesInformation.isChecked() == True:
+            self.form.itemSPEdit.setEnabled(True)
+            self.form.itemSPAccEdit.setEnabled(True)
+        else:
+            self.form.itemSPEdit.setEnabled(False)
+            self.form.itemSPAccEdit.setEnabled(False)
+
+        if self.form.itemPurchaseInformation.isChecked() == True:
+            self.form.itemCPEdit.setEnabled(True)
+            self.form.itemCPAccEdit.setEnabled(True)
+        elif self.form.itemPurchaseInformation.isChecked() == False:
+            self.form.itemCPEdit.setEnabled(False)
+            self.form.itemCPAccEdit.setEnabled(False)
+
         for i in self.businessList:
             self.form.businessList.addItem(i[0])
 
         self.productTable = self.form.om_itemTable
-
-        QtWidgets.QCheckBox().stateChanged.connect()
-
-
 
         # MRP Plot
         self.plt = plt
@@ -54,6 +65,10 @@ class Dashboard(QtWidgets.QMainWindow):
         self.form.mrpLayout.setRowStretch(0, 4)
         self.form.mrpLayout.addWidget(self.canvas, 0, 1)
 
+        self.figure2 = self.plt.figure()
+        self.canvas2 = FigureCanvas(self.figure2)
+        self.form.dashBoardGridLayout.addWidget(self.canvas2, 0, 1)
+        self.makeDashPlot()
         # Button Connections
         self.form.addProject.clicked.connect(self.addProjectWindow)
         self.form.addTask.clicked.connect(self.plot)
@@ -64,8 +79,8 @@ class Dashboard(QtWidgets.QMainWindow):
         self.form.addToTableBtn.clicked.connect(self.addToTable)
         self.form.addThumbnailBtn.clicked.connect(self.setThumbnail)
         self.form.addToInventoryBtn.clicked.connect(self.addToInventory)
-        self.form.itemSalesInformation.stateChanged.connect(self.spInformation)
-        self.form.itemPurchaseInformation.stateChanged.connect(self.cpInformation)
+        self.form.itemSalesInformation.stateChanged.connect(lambda:self.priceInformation(self.form.itemSalesInformation, 1))
+        self.form.itemPurchaseInformation.stateChanged.connect(lambda:self.priceInformation(self.form.itemPurchaseInformation, 2))
         # ComboBox Updates
         self.projectList = self.database.fetchAll("projectName", "Projects")
         self.form.projectTitle.addItem("Select Project")
@@ -76,12 +91,44 @@ class Dashboard(QtWidgets.QMainWindow):
         for x in self.deliverPrefList:
             self.form.om_selectShipmentPref.addItem(x[0])
 
-    # Complete these function for toggle information !!!!!!!
-    def spInformation(self, state):
-        if state > 0:
+    def makeDashPlot(self):
+        self.figure2.clear()
+        ax = self.figure2.add_subplot(131)
+        bx = self.figure2.add_subplot(232)
+        cx = self.figure2.add_subplot(233)
+        dx = self.figure2.add_subplot(235)
+        ex = self.figure2.add_subplot(236)
+        data = [random.random() for i in range(10)]
+        self.figure2.set_figheight(15)
+        self.figure2.set_figwidth(15)
+        labels = 'Expenses', 'Total Income'
+        sizes = [67, 33]
+        explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
+        bx.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+                shadow=True, startangle=90)
+        bx.axis('equal')
+        ax.plot(data, '*-')
+        cx.plot(data, '*-')
+        dx.plot(data, '*-')
+        ex.plot(data, '*-')
+        self.canvas2.draw()
 
-    def cpInformation(self, state):
+    def priceInformation(self, chkbtn, val):
+        if val == 1:
+            if chkbtn.isChecked() == True:
+                self.form.itemSPEdit.setEnabled(True)
+                self.form.itemSPAccEdit.setEnabled(True)
+            else:
+                self.form.itemSPEdit.setEnabled(False)
+                self.form.itemSPAccEdit.setEnabled(False)
+        elif val == 2:
+            if chkbtn.isChecked() == True:
+                self.form.itemCPEdit.setEnabled(True)
+                self.form.itemCPAccEdit.setEnabled(True)
+            else:
+                self.form.itemCPEdit.setEnabled(False)
+                self.form.itemCPAccEdit.setEnabled(False)
 
 
     def addToTable(self):
@@ -90,6 +137,8 @@ class Dashboard(QtWidgets.QMainWindow):
                                                                   "You have to add products/services to your inventory",
                                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
                                                           QtWidgets.QMessageBox.Yes)
+        else:
+            self.switchInventoryInsert.emit()
     def addShipmentWindow(self):
         self.switchAddDelivery.emit()
 
@@ -102,6 +151,18 @@ class Dashboard(QtWidgets.QMainWindow):
         self.itemReturnable = int(self.form.itemReturnableCheck.isChecked())
         self.itemManufacturer = self.form.itemManufacturerEdit.text()
         self.itemISBN = self.form.itemISBNEdit.text()
+        self.sp = self.form.itemSPEdit.text()
+        self.spAcc = self.form.itemSPAccEdit.text()
+        self.cp = self.form.itemCPEdit.text()
+        self.cpAcc = self.form.itemCPAccEdit.text()
+
+        self.inventoryData = "'"+self.itemType+"', '"+self.thumbnailPath+"','"+self.itemName+"','"+self.itemSKU+"','"+\
+                             self.itemUnit+"',"+str(self.itemReturnable)+",'"+self.itemManufacturer+"','"+self.itemISBN+\
+                             "',"+str(self.sp)+",'"+self.spAcc+"',"+str(self.cp)+",'"+self.cpAcc+"'"
+
+        self.database.insertOne("Inventory",
+                                "itemType, thumbnail, itemName, itemSKU, itemUnit, returnable, manufacturer, ISBN, "
+                                "sellingPrice, sellingAccount, costPrice, costAccount", self.inventoryData)
 
     def setThumbnail(self):
         self.openedFileName = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file',
@@ -219,6 +280,25 @@ class Dashboard(QtWidgets.QMainWindow):
         self.form.taskDescription.setText("")
         self.form.startDateEdit.setDate(dt.datetime.strptime("2000-01-01", "%Y-%m-%d").date())
         self.form.endDateEdit.setDate(dt.datetime.strptime("2000-01-01", "%Y-%m-%d").date())
+
+    def addToItemTable(self, itemId):
+        counter = 0
+        self.itemDetails = self.database.fetchAllByInt("*", "Inventory", "itemId", itemId)
+        print(self.itemDetails)
+        self.form.om_itemTable.setColumnCount(12)
+        for x in self.itemDetails:
+            self.form.om_itemTable.insertRow(counter)
+            self.form.om_itemTable.setItem(counter, 1, QtWidgets.QTableWidgetItem(x[0]))
+            self.form.om_itemTable.setItem(counter, 2, QtWidgets.QTableWidgetItem(x[3]))
+            self.form.om_itemTable.setItem(counter, 3, QtWidgets.QTableWidgetItem(x[4]))
+            self.form.om_itemTable.setItem(counter, 4, QtWidgets.QTableWidgetItem(x[5]))
+            self.form.om_itemTable.setItem(counter, 5, QtWidgets.QTableWidgetItem(x[6]))
+            self.form.om_itemTable.setItem(counter, 6, QtWidgets.QTableWidgetItem(x[7]))
+            self.form.om_itemTable.setItem(counter, 7, QtWidgets.QTableWidgetItem(x[8]))
+            self.form.om_itemTable.setItem(counter, 8, QtWidgets.QTableWidgetItem(x[9]))
+            self.form.om_itemTable.setItem(counter, 9, QtWidgets.QTableWidgetItem(x[10]))
+            self.form.om_itemTable.setItem(counter, 10, QtWidgets.QTableWidgetItem(x[11]))
+            self.form.om_itemTable.setItem(counter, 11, QtWidgets.QTableWidgetItem(x[12]))
 
     def updateUI(self, source):
         if source == "Project":
